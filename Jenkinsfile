@@ -25,7 +25,6 @@ agent any
         container('kubectl') {
             sh 'kubectl apply -f deployment.yml'
             sh 'kubectl apply -f service.yml'
-          }
         }
        //kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
