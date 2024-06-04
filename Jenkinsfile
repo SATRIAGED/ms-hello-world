@@ -22,7 +22,9 @@ agent any
  stage("Deploy Kubernetes") {
 
      steps {
-       kubernetesDeploy(configs: "deployment.yml", "service.yml")
+        container('kubectl') {
+          withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+            kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
      }
 
