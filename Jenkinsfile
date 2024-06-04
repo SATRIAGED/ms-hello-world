@@ -26,7 +26,7 @@ agent any
                  script {
      withKubeConfig([credentialsId: 'kubeconfig']) 
          {
-       sh "kubectl apply -f deployment.yml"
+       sh "kubectl apply -f deployment.yml --validate=false"
        sh "kubectl apply -f service.yml"
        }                
      }
