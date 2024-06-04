@@ -22,10 +22,14 @@ agent any
  stage("Deploy Kubernetes") {
 
      steps {
-        container('kubectl') {
-            sh 'kubectl apply -f deployment.yml'
-            sh 'kubectl apply -f service.yml'
-        }
+        sh "sed -i 's/node-app:latest/node-app:${env.BUILD_ID}/g' deployment.yml"
+                 script {
+     withKubeConfig([credentialsId: 'kubeconfig']) 
+         {
+       sh "kubectl apply -f deployment.yml"
+       sh "kubectl apply -f service.yml"
+       }                
+     }
        //kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
      }
