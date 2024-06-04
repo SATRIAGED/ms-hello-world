@@ -23,8 +23,6 @@ agent any
 
      steps {
         container('kubectl') {
-          withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" deployment.yml'
             sh 'kubectl apply -f deployment.yml'
             sh 'kubectl apply -f service.yml'
           }
