@@ -19,19 +19,6 @@ agent any
              }
          }
      }
-     stage("Push image") {
-        environment {
-               registryCredential = 'dockerhub-credentials'
-           }
-         steps {
-             script {
-                 docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-                    dockerImage.push("latest")
-                 }
-             }
-         }
-     }
-
  stage("Deploy Kubernetes") {
 
      steps {
