@@ -22,8 +22,7 @@ agent any
  stage("Deploy Kubernetes") {
 
      steps {
-       sh "kubectl apply -f deployment.yml"
-       sh "kubectl apply -f service.yml"
+       kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
      }
 

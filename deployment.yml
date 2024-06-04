@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: example-user/node-app:latest
+        image: samheutmaker/node-app:latest
         ports:
         - containerPort: 8080
 
