@@ -24,12 +24,15 @@ agent any
      steps {
         container('kubectl') {
           withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-            kubernetesDeploy(configs: "deployment.yml", "service.yml")
+            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" deployment.yml'
+            sh 'kubectl apply -f deployment.yml'
+            sh 'kubectl apply -f service.yml'
+          }
+        }
+       //kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
      }
 
    }
  }
-
- 
 
