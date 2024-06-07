@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: load-balancer
+  name: ms-hello-world
   labels:
-    app: node-app
+    app: ms-hello-world
 spec:
   type: LoadBalancer
   ports:
   - port: 8080
     targetPort: 8080
   selector:
-    app: node-app
+    app: ms-hello-world
 
