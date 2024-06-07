@@ -1,3 +1,7 @@
+def appName = 'ms-hello-world'
+def namespace = 'web'
+
+
 pipeline {
 
 agent any
