@@ -6,9 +6,7 @@ pipeline {
 
 agent any
  environment {
-     PROJECT_ID = 'jenkins'
-     CLUSTER_NAME = 'minikube'
-     dockerimagename = 'samheutmaker/node-app'
+     dockerimagename = 'jenkins/jnlp-slave'
  }
  stages {
      stage("Checkout code") {
@@ -26,7 +24,6 @@ agent any
  stage("Deploy Kubernetes") {
 
      steps {
-        sh "sed -i 's/node-app:latest/node-app:${env.BUILD_ID}/g' deployment.yml"
                  script {
      withKubeConfig([credentialsId: 'kubeconfig']) 
          {

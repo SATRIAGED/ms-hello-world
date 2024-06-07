@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: node-app
+  name: ms-hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-app
+      app: nms-hello-world
   template:
     metadata:
       labels:
-        app: node-app
+        app: ms-hello-world
     spec:
       containers:
-      - name: node-app
-        image: samheutmaker/node-app:latest
+      - name: ms-hello-world
+        image: jenkins/jnlp-slave
         ports:
         - containerPort: 8080
 
