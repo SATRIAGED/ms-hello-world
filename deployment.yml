@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ms-hello-world
-        image: jenkins/jnlp-slave
+        image: jnode:18-alpine
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
 

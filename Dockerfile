@@ -13,8 +13,8 @@ FROM node:18-alpine
 ENV NODE_ENV="production"
 COPY --from=builder /app /app
 WORKDIR /app
-ENV PORT 8080
-EXPOSE 8080
+ENV PORT 8081
+EXPOSE 8081
 
 # Start the application
 CMD ["npm", "start"]
