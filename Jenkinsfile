@@ -4,7 +4,7 @@
 
 pipeline {
 
-agent { Dockerfile true }
+agent { dockerfile true }
  stages {
      stage("Checkout code") {
          steps {
@@ -20,7 +20,6 @@ agent { Dockerfile true }
      stage("Build image") {
          steps {
              sh 'npm version'
-             sh 'docker image list'
          }
      }
  stage("Deploy Kubernetes") {
